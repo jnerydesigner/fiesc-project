@@ -49,14 +49,14 @@ const Enrollment: React.FC = () => {
           >
             <h2 className="font-semibold text-lg">{curso.name}</h2>
             <p>Inscrições: {curso.subscriber}</p>
-            <p>vacancy: {curso.vacancy}</p>
+            <p>Vagas: {curso.vacancy}</p>
             <div className="mt-4">
               {curso.subscriber >= curso.vacancy ? (
                 <button
                   className="w-full px-4 py-2 bg-gray-300 text-gray-600 rounded-md cursor-not-allowed"
                   disabled
                 >
-                  Sem vacancy
+                  Sem Vagas
                 </button>
               ) : curso.subscriber > 0 ? (
                 <button
@@ -70,7 +70,7 @@ const Enrollment: React.FC = () => {
                   className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                   onClick={() => handleInscrever(curso.id)}
                 >
-                  Inscrever
+                  Se Inscrever
                 </button>
               )}
             </div>

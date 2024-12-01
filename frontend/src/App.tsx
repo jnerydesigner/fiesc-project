@@ -1,7 +1,13 @@
+import Header from "./components/header";
 import { RoutesApp } from "./routes";
 
 function App() {
-  return <RoutesApp />;
+  return (
+    <>
+      <Header />
+      <RoutesApp />
+    </>
+  );
 }
 
 export default App;
