@@ -1,0 +1,22 @@
+services:
+  fiesc_postgres:
+    container_name: fiesc_postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: fiesc_root
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: fiesc_db
+    ports:
+      - 5562:5432
+    volumes:
+      - fiesc_vol:/var/lib/postgresql/data
+    networks:
+      - fiesc_network
+    restart: always
+
+volumes:
+  fiesc_vol:
+
+networks:
+  fiesc_network:
+    driver: bridge
