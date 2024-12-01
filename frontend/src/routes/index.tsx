@@ -1,14 +1,23 @@
+import { MainLayout } from "@/mainLayout";
 import CadPerson from "@/pages/cad-person";
+import { CreateCourse } from "@/pages/create-course";
 import Enrollment from "@/pages/enrollment";
 import Login from "@/pages/login";
-import { Routes, Route } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      { path: "/", element: <Login /> },
+      { path: "/cad-person", element: <CadPerson /> },
+      { path: "/enrollment", element: <Enrollment /> },
+      { path: "/create-course", element: <CreateCourse /> },
+    ],
+  },
+]);
 
 export const RoutesApp: React.FC = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/cad-person" element={<CadPerson />} />
-      <Route path="/enrollment" element={<Enrollment />} />
-    </Routes>
-  );
+  return <RouterProvider router={router} />;
 };

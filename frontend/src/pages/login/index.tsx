@@ -3,9 +3,9 @@ import { NavLink } from "react-router";
 
 const Login: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-md w-80">
-        <h2 className="text-lg font-semibold mb-4 border-b pb-2">Login</h2>
+    <div className="flex items-center justify-center bg-gray-100 min-h-lvh  max-h-[100vh] ">
+      <div className="bg-white p-6 rounded-lg shadow-md w-96 overflow-auto">
+        <h2 className="text-lg font-semibold mb-2 border-b pb-2">Login</h2>
         <form className="space-y-4">
           {/* CPF/E-mail */}
           <div>

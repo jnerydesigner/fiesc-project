@@ -36,6 +36,12 @@ const Header: React.FC = () => {
           </button>
           <button
             className="text-white hover:text-gray-300"
+            onClick={() => navigate("/create-course")}
+          >
+            Criar um Curso
+          </button>
+          <button
+            className="text-white hover:text-gray-300"
             onClick={() => alert("Logout efetuado!")}
           >
             Sair

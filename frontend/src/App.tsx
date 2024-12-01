@@ -1,10 +1,9 @@
-import Header from "./components/header";
 import { RoutesApp } from "./routes";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
-      <Header />
       <RoutesApp />
     </>
   );
