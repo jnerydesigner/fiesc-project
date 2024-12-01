@@ -39,7 +39,4 @@ public class Pessoa {
 
     @Column(name = "email", length = 100)
     private String email;
-
-    @Column(name="senha")
-    private String senha;
 }

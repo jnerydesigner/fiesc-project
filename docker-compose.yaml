@@ -14,6 +14,21 @@ services:
       - fiesc_network
     restart: always
 
+  fiesc_postgres_web:
+    container_name: fiesc_postgres_web
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: fiesc_root
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: fiesc_web
+    ports:
+      - 5563:5432
+    volumes:
+      - fiesc_vol_web:/var/lib/postgresql/data
+    networks:
+      - fiesc_network
+    restart: always
+
   fiesc_rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: "fiesc_rabbitmq"
@@ -31,6 +46,7 @@ volumes:
   fiesc_vol:
   rabbitmq_data:
   rabbitmq_log:
+  fiesc_vol_web:
 
 networks:
   fiesc_network:
