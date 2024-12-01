@@ -14,8 +14,23 @@ services:
       - fiesc_network
     restart: always
 
+  fiesc_rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: "fiesc_rabbitmq"
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/
+      - rabbitmq_log:/var/log/rabbitmq
+    networks:
+      - fiesc_network
+    restart: unless-stopped
+
 volumes:
   fiesc_vol:
+  rabbitmq_data:
+  rabbitmq_log:
 
 networks:
   fiesc_network:
