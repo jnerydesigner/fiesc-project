@@ -35,4 +35,11 @@ public class CursosController {
         return ResponseEntity.ok(novoCurso);
     }
 
+
+    @GetMapping("/buscar-por-nome")
+    public ResponseEntity<Boolean> getCursoByNome(@RequestParam String nome) {
+        boolean curso = cursosService.existsCurso(nome);
+        return ResponseEntity.ok(curso);
+    }
+
 }
