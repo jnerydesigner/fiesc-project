@@ -1,13 +1,12 @@
 package br.com.fiescproject.api.presenters;
 
 
+import br.com.fiescproject.api.application.dtos.CursoDTO;
 import br.com.fiescproject.api.application.services.CursosService;
 import br.com.fiescproject.api.domain.model.Cursos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +26,13 @@ public class CursosController {
         List<Cursos> cursos = cursosService.getAllCursos();
 
         return ResponseEntity.ok(cursos);
+    }
+
+    @PostMapping
+    public ResponseEntity<Cursos> createCourses(@RequestBody CursoDTO curso){
+        Cursos novoCurso = cursosService.createCurso(curso);
+
+        return ResponseEntity.ok(novoCurso);
     }
 
 }

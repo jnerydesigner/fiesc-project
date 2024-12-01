@@ -1,6 +1,7 @@
 package br.com.fiescproject.api.application.services;
 
 
+import br.com.fiescproject.api.application.dtos.CursoDTO;
 import br.com.fiescproject.api.domain.model.Cursos;
 import br.com.fiescproject.api.infra.repositories.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,15 @@ public class CursosService {
 
     public List<Cursos> getAllCursos(){
         return cursoRepository.findAll();
+    }
+
+    public Cursos createCurso(CursoDTO cursoDTO){
+        Cursos newCurso = new Cursos();
+        newCurso.setNome(cursoDTO.nome());
+        newCurso.setNumeroDeVagas(cursoDTO.numeroDeVagas());
+        Cursos cursoSave = cursoRepository.save(newCurso);
+
+        return cursoSave;
+
     }
 }
